@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "图片提取器",
+  "version": "1.0",
+  "description": "提取图片并转换为PNG格式",
+  "icons": {
+    "16": "image_fx.jpg",
+    "48": "image_fx.jpg",
+    "128": "image_fx.jpg"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "image_fx.jpg",
+      "48": "image_fx.jpg",
+      "128": "image_fx.jpg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.jike.com/*", "*://*.jellow.club/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
