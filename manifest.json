@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "图片提取器",
-  "version": "1.0",
-  "description": "提取图片并转换为PNG格式",
+  "name": "即刻绘梦 - 智能图片提取器",
+  "version": "2.0",
+  "description": "✨ 智能提取网页图片，支持WebP转PNG，一键复制下载，让创意触手可及",
   "icons": {
     "16": "image_fx.jpg",
     "48": "image_fx.jpg",
@@ -15,6 +15,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
+    "default_title": "即刻绘梦 - 智能图片提取器",
     "default_icon": {
       "16": "image_fx.jpg",
       "48": "image_fx.jpg",
