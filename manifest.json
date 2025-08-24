@@ -13,6 +13,9 @@
     "contextMenus",
     "downloads"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "即刻绘梦 - 智能图片提取器",

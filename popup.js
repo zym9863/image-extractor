@@ -84,9 +84,39 @@ document.addEventListener('DOMContentLoaded', function() {
     return img ? img.src : null;
   }
 
+  /**
+   * 验证URL是否安全有效
+   * @param {string} url - 要验证的URL
+   * @returns {boolean} 是否为有效的图片URL
+   */
+  function isValidImageUrl(url) {
+    try {
+      const urlObj = new URL(url);
+      // 只允许HTTP和HTTPS协议
+      if (!['http:', 'https:'].includes(urlObj.protocol)) {
+        return false;
+      }
+      // 防止访问内网IP
+      const hostname = urlObj.hostname;
+      if (hostname === 'localhost' || hostname === '127.0.0.1' || 
+          hostname.startsWith('192.168.') || hostname.startsWith('10.') ||
+          hostname.startsWith('172.')) {
+        return false;
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   // 转换webp为PNG
   async function convertWebpToPng(imageUrl) {
     try {
+      // 验证URL安全性
+      if (!isValidImageUrl(imageUrl)) {
+        throw new Error('无效或不安全的图片URL');
+      }
+      
       const response = await fetch(imageUrl);
       const blob = await response.blob();
       
@@ -95,6 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
         img.crossOrigin = 'anonymous';
         
         img.onload = () => {
+          // 图片加载成功后立即释放内存
+          URL.revokeObjectURL(img.src);
+          
           const canvas = document.createElement('canvas');
           canvas.width = img.width;
           canvas.height = img.height;
@@ -110,8 +143,14 @@ document.addEventListener('DOMContentLoaded', function() {
           }, 'image/png');
         };
         
-        img.onerror = () => reject(new Error('图片加载失败'));
-        img.src = URL.createObjectURL(blob);
+        img.onerror = () => {
+          // 图片加载失败时也要释放内存
+          URL.revokeObjectURL(img.src);
+          reject(new Error('图片加载失败'));
+        };
+        
+        const objectURL = URL.createObjectURL(blob);
+        img.src = objectURL;
       });
     } catch (error) {
       throw new Error('图片转换失败: ' + error.message);
