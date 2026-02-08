@@ -1,6 +1,6 @@
 {
-  "name": "wxt-vue-starter",
-  "description": "manifest.json description",
+  "name": "image-extractor",
+  "description": "Browser extension to extract images from web pages with WebP to PNG conversion",
   "private": true,
   "version": "0.0.0",
   "type": "module",

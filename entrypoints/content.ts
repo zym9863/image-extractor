@@ -1,6 +1,14 @@
+import { extractImages } from '@/utils/extractImages'
+
 export default defineContentScript({
-  matches: ['*://*.google.com/*'],
+  matches: ['<all_urls>'],
   main() {
-    console.log('Hello content.');
+    browser.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+      if (message.action === 'extract-images') {
+        const images = extractImages()
+        sendResponse(images)
+      }
+      return true
+    })
   },
-});
+})
