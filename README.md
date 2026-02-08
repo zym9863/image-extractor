@@ -1,44 +1,7 @@
-[English](./README_EN.md) | 中文
+# WXT + Vue 3
 
-# 图片提取器 Chrome扩展
+This template should help get you started developing with Vue 3 in WXT.
 
-一个简单实用的Chrome浏览器扩展，可以从HTML代码中快速提取图片并支持格式转换。
+## Recommended IDE Setup
 
-## 主要功能
-
-- 自动从HTML代码中提取图片URL
-- WebP格式图片自动转换为PNG格式
-- 实时预览提取的图片
-- 一键复制图片到剪贴板
-- 支持下载提取的图片
-- 友好的状态提示和错误处理
-
-## 安装方法
-
-1. 下载本项目代码
-2. 打开Chrome浏览器，进入扩展程序页面（chrome://extensions/）
-3. 开启右上角的"开发者模式"
-4. 点击"加载已解压的扩展程序"按钮
-5. 选择本项目所在文件夹
-
-## 使用说明
-
-1. 点击Chrome工具栏中的扩展图标，打开操作界面
-2. 将包含图片的HTML代码粘贴到文本框中
-3. 扩展会自动提取并显示图片
-4. 可以选择：
-   - 点击"复制图片"将图片复制到剪贴板
-   - 点击"下载图片"将图片保存到本地
-
-## 技术特点
-
-- 使用原生JavaScript开发，无需额外依赖
-- 支持异步图片处理和格式转换
-- 优雅的错误处理和用户反馈机制
-- 响应式界面设计，操作简单直观
-
-## 注意事项
-
-- 确保HTML代码中包含有效的图片标签（`<img>`）
-- 图片URL必须是可访问的
-- 跨域图片需要目标服务器允许跨域访问
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
