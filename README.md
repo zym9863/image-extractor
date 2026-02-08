@@ -1,3 +1,5 @@
+[中文](README.md) | [English](README-EN.md)
+
 # image-extractor
 
 浏览器扩展，用于从当前网页提取图片，并支持 WebP 转 PNG（复制或下载时自动处理）。
